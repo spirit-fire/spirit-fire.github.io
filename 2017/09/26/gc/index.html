@@ -84,7 +84,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -97,7 +97,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JVM," />
+  <meta name="keywords" content="-JVM," />
 
 
 
@@ -114,16 +114,16 @@
 
 
 <meta name="description" content="gcStop-the-world会在任何一种GC算法中发生。Stop-the-world意味着 JVM 因为要执行GC而停止了应用程序的执行。当Stop-the-world发生时，除了GC所需的线程以外，所有线程都处于等待状态，直到GC任务完成。GC优化很多时候就是指减少Stop-the-world发生的时间。尽量将使用完的对象设置为null，在有等待时间的条件基础之上显示的调用System.gc">
-<meta name="keywords" content="JVM">
+<meta name="keywords" content="-JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gc">
+<meta property="og:title" content="gc 简介">
 <meta property="og:url" content="http://yoursite.com/2017/09/26/gc/index.html">
 <meta property="og:site_name" content="tuntunxiong 的个人博客">
 <meta property="og:description" content="gcStop-the-world会在任何一种GC算法中发生。Stop-the-world意味着 JVM 因为要执行GC而停止了应用程序的执行。当Stop-the-world发生时，除了GC所需的线程以外，所有线程都处于等待状态，直到GC任务完成。GC优化很多时候就是指减少Stop-the-world发生的时间。尽量将使用完的对象设置为null，在有等待时间的条件基础之上显示的调用System.gc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-26T07:25:11.000Z">
+<meta property="og:updated_time" content="2017-09-26T07:46:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gc">
+<meta name="twitter:title" content="gc 简介">
 <meta name="twitter:description" content="gcStop-the-world会在任何一种GC算法中发生。Stop-the-world意味着 JVM 因为要执行GC而停止了应用程序的执行。当Stop-the-world发生时，除了GC所需的线程以外，所有线程都处于等待状态，直到GC任务完成。GC优化很多时候就是指减少Stop-the-world发生的时间。尽量将使用完的对象设置为null，在有等待时间的条件基础之上显示的调用System.gc">
 
 
@@ -160,7 +160,7 @@
 
 
 
-  <title>gc | tuntunxiong 的个人博客</title>
+  <title>gc 简介 | tuntunxiong 的个人博客</title>
   
 
 
@@ -358,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">gc</h1>
+          <h1 class="post-title" itemprop="name headline">gc 简介</h1>
         
 
         <div class="post-meta">
@@ -512,7 +512,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JVM/" rel="tag"># JVM</a>
+            <a href="/tags/JVM/" rel="tag"># -JVM</a>
           
         </div>
       
@@ -635,7 +635,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -907,7 +907,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

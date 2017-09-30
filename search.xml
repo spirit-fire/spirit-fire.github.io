@@ -3,6 +3,581 @@
   
     
     <entry>
+      <title><![CDATA[挂载磁盘]]></title>
+      <url>/2017/09/30/mount-disk/</url>
+      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1、fdisk -l 查看磁盘</div><div class="line">2、fdisk -S 56 /dev/vdb</div><div class="line">    n, p, 回车, 回车, wq</div><div class="line">3、mkfs.ext3 /dev/vdb1</div><div class="line">4、echo &apos;/dev/vdb1 /data1 ext4 defaults 1 1&apos; &gt;&gt; /etc/fstab</div><div class="line">5、mkdir /data1</div><div class="line">6、mount -a</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> others </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[kafka(一)安装]]></title>
+      <url>/2017/09/30/kafka/</url>
+      <content type="html"><![CDATA[<h1 id="Kafka-安装"><a href="#Kafka-安装" class="headerlink" title="Kafka 安装"></a>Kafka 安装</h1><h2 id="1、brew-install-gradle"><a href="#1、brew-install-gradle" class="headerlink" title="1、brew install gradle"></a>1、brew install gradle</h2><h2 id="2、cd-Users-lgx-tools-kafka-0-11-0-0"><a href="#2、cd-Users-lgx-tools-kafka-0-11-0-0" class="headerlink" title="2、cd /Users/lgx/tools/kafka-0.11.0.0"></a>2、cd /Users/lgx/tools/kafka-0.11.0.0</h2><h3 id="2-1、-usr-local-Cellar-gradle-3-5-bin-gradle"><a href="#2-1、-usr-local-Cellar-gradle-3-5-bin-gradle" class="headerlink" title="2.1、/usr/local/Cellar/gradle/3.5/bin/gradle"></a>2.1、/usr/local/Cellar/gradle/3.5/bin/gradle</h3><h3 id="2-2、-gradlew-jar"><a href="#2-2、-gradlew-jar" class="headerlink" title="2.2、./gradlew jar"></a>2.2、./gradlew jar</h3>]]></content>
+      
+        <categories>
+            
+            <category> component </category>
+            
+            <category> kafka </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mina]]></title>
+      <url>/2017/09/30/mina/</url>
+      <content type="html"><![CDATA[<h1 id="mina"><a href="#mina" class="headerlink" title="mina"></a>mina</h1>]]></content>
+      
+        <categories>
+            
+            <category> component </category>
+            
+            <category> mina </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[thrift]]></title>
+      <url>/2017/09/30/thrift/</url>
+      <content type="html"><![CDATA[<h1 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a>thrift</h1>]]></content>
+      
+        <categories>
+            
+            <category> component </category>
+            
+            <category> thrift </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[storm(一)安装]]></title>
+      <url>/2017/09/30/storm/</url>
+      <content type="html"><![CDATA[<h1 id="storm安装"><a href="#storm安装" class="headerlink" title="storm安装"></a>storm安装</h1><h2 id="0、安装unzip"><a href="#0、安装unzip" class="headerlink" title="0、安装unzip"></a>0、安装unzip</h2><pre><code>yum install unzip 
+</code></pre><h2 id="1、zookeeper安装"><a href="#1、zookeeper安装" class="headerlink" title="1、zookeeper安装"></a>1、zookeeper安装</h2><pre><code>tar zxvf zookeeper-3.4.5.tar.gz
+cd zookeeper-3.4.5
+vim conf/zoo.cfg
+dataDir=/data1/ln/zookeeper
+server.1=10.72.63.11:4887:5887
+</code></pre><h2 id="2、zeromq安装"><a href="#2、zeromq安装" class="headerlink" title="2、zeromq安装"></a>2、zeromq安装</h2><pre><code>tar axvf zeromq-4.0.4.tar.gz
+cd zeromq-4.0.4
+./configure
+make
+make install
+ldconfig
+</code></pre><h2 id="3、jzmq安装"><a href="#3、jzmq安装" class="headerlink" title="3、jzmq安装"></a>3、jzmq安装</h2><pre><code>unzip jzmq-master.zip
+cd jzmq-master
+./autogen.sh
+./configure
+make
+make install
+</code></pre><h2 id="4、安装storm"><a href="#4、安装storm" class="headerlink" title="4、安装storm"></a>4、安装storm</h2><pre><code>wget https://github.com/downloads/nathanmarz/storm/storm-0.8.1.zip  
+unzip storm-0.8.1.zip  
+修改storm.yaml配置文件Storm发行版本解压目录下有一个conf/storm.yaml文件，用于配置Storm。
+    注意: 配置中的&quot;:&quot;两侧必须有空格！！！
+          配置选项之间的间隔不能用tab键来分割！！！
+          分配多少个端口就表示启动多少个进程
+          UI查看: 10.73.63.11:18080
+     storm.zookeeper.servers : 
+         - &quot;10.73.63.11&quot;
+     nimbus.host : &quot;10.73.63.11&quot;
+     ui.port : &quot;18080&quot;
+     storm.local.dir : &quot;/data1/ln/storm_data&quot;
+     supervisor.slots.ports :
+         - 6700
+         - 6701
+         - 6702
+         - 6703
+</code></pre><h2 id="5、storm运行示例："><a href="#5、storm运行示例：" class="headerlink" title="5、storm运行示例："></a>5、storm运行示例：</h2><pre><code>打包时maven配置:
+    &lt;dependency&gt;
+        &lt;groupId&gt;storm&lt;/groupId&gt;
+        &lt;artifactId&gt;storm&lt;/artifactId&gt;
+        &lt;version&gt;0.9.0.1&lt;/version&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+/data1/thd/storm-0.8.1/bin/storm ui &amp;
+/data1/thd/storm-0.8.1/bin/storm nimbus &amp;
+/data1/thd/storm-0.8.1/bin/storm supervisor &amp;
+启动jar包 /data1/thd/storm-0.8.1/bin/storm jar ./storm-0.0.1-SNAPSHOT.jar com.xxx.storm.StormEntry ./out.txt
+停止jar包 /data1/thd/storm-0.8.1/bin/storm kill &apos;Test storm!&apos;
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> component </category>
+            
+            <category> storm </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[zookeeper(一)安装及部署]]></title>
+      <url>/2017/09/30/zookeeper/</url>
+      <content type="html"><![CDATA[<h1 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h1><pre><code>wget &apos;https://mirrors.cnnic.cn/apache/zookeeper/stable/zookeeper-3.4.10.tar.gz&apos; --no-check-certificate
+tar -zxvf zookeeper-3.4.10.tar.gz
+</code></pre><h1 id="2、伪集群配置"><a href="#2、伪集群配置" class="headerlink" title="2、伪集群配置"></a>2、伪集群配置</h1><pre><code>Path: /Users/lgx/tools/zookeeper_2181
+      /Users/lgx/tools/zookeeper_2182
+      /Users/lgx/tools/zookeeper_2183
+Data: /Users/lgx/datasource/zookeeper/2181/data
+      /Users/lgx/datasource/zookeeper/2183/data
+      /Users/lgx/datasource/zookeeper/2182/data
+Logs: /Users/lgx/datasource/zookeeper/2181/logs
+      /Users/lgx/datasource/zookeeper/2182/logs
+      /Users/lgx/datasource/zookeeper/2183/logs
+myid: echo 1 &gt; /Users/lgx/datasource/zookeeper/2181/data/myid
+      echo 2 &gt; /Users/lgx/datasource/zookeeper/2182/data/myid
+      echo 3 &gt; /Users/lgx/datasource/zookeeper/2183/data/myid
+zoo.cfg: (如果是集群, 不能用127.0.0.1, 只能用实际的ip)
+      修改dataDir, clientPort
+      server.1=127.0.0.1:2888:3888
+      server.2=127.0.0.1:2889:3889
+      server.3=127.0.0.1:2890:3890
+</code></pre><h1 id="3、伪集群启动"><a href="#3、伪集群启动" class="headerlink" title="3、伪集群启动"></a>3、伪集群启动</h1><pre><code>/Users/lgx/tools/zookeeper_2181/bin/zkServer.sh start
+/Users/lgx/tools/zookeeper_2182/bin/zkServer.sh start
+/Users/lgx/tools/zookeeper_2183/bin/zkServer.sh start
+</code></pre><h1 id="4、状态查询"><a href="#4、状态查询" class="headerlink" title="4、状态查询"></a>4、状态查询</h1><pre><code>/Users/lgx/tools/zookeeper_2181/bin/zkServer.sh status
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> component </category>
+            
+            <category> zookeeper </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[rabbitmq]]></title>
+      <url>/2017/09/30/rabbitmq/</url>
+      <content type="html"><![CDATA[<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1>]]></content>
+      
+        <categories>
+            
+            <category> message queue </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mcq]]></title>
+      <url>/2017/09/30/mcq/</url>
+      <content type="html"><![CDATA[<h1 id="mcq"><a href="#mcq" class="headerlink" title="mcq"></a>mcq</h1>]]></content>
+      
+        <categories>
+            
+            <category> message queue </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[rocketmq]]></title>
+      <url>/2017/09/30/rocketmq/</url>
+      <content type="html"><![CDATA[<h1 id="rocketmq"><a href="#rocketmq" class="headerlink" title="rocketmq"></a>rocketmq</h1>]]></content>
+      
+        <categories>
+            
+            <category> message queue </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[zeromq]]></title>
+      <url>/2017/09/30/zeromq/</url>
+      <content type="html"><![CDATA[<h1 id="zeromq"><a href="#zeromq" class="headerlink" title="zeromq"></a>zeromq</h1>]]></content>
+      
+        <categories>
+            
+            <category> message queue </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[qrcode zbar 二维码检测]]></title>
+      <url>/2017/09/30/qrcode-zbar/</url>
+      <content type="html"><![CDATA[<h1 id="zbar安装"><a href="#zbar安装" class="headerlink" title="zbar安装"></a>zbar安装</h1><h2 id="1、boost安装"><a href="#1、boost安装" class="headerlink" title="1、boost安装"></a>1、boost安装</h2><pre><code>tar zxvf boost_1_53_0.tar.gz
+cd boost_1_53_0/
+./bootstrap.sh
+./b2
+</code></pre><h2 id="2、libpng安装"><a href="#2、libpng安装" class="headerlink" title="2、libpng安装"></a>2、libpng安装</h2><pre><code>tar zxvf libpng-1.5.8.tar.gz
+cd libpng-1.5.8/
+./autogen.sh
+./configure
+make &amp;&amp; make install
+</code></pre><h2 id="3、jpeg安装"><a href="#3、jpeg安装" class="headerlink" title="3、jpeg安装"></a>3、jpeg安装</h2><pre><code>tar zxvf jpegsrc.v9a.tar.gz
+cd jpeg-9a/
+./configure
+make libdir=/usr/lib64
+make libdir=/usr/lib64 install
+</code></pre><h2 id="4、ImageMagic安装"><a href="#4、ImageMagic安装" class="headerlink" title="4、ImageMagic安装"></a>4、ImageMagic安装</h2><pre><code>tar zxvf ImageMagick-6.9.3-8.tar.gz
+cd ImageMagick-6.9.3-8
+./configure --enable-share --enable-static LDFLAGS=&quot;-L/usr/lib64&quot; CPPFLAGS=&quot;-I/usr/include&quot;
+make &amp;&amp; make install
+注意:注释掉coders/jpeg.c 348~352行，防止程序中断，在测试程序中使用try{...}catch(Exception e){}吃掉异常，这样可使程序持续运行。以及315-324行，if (image-&gt;debug != MagickFalse)到longjmp(error_manager-&gt;error_recovery,1);
+</code></pre><h2 id="5、libcurl安装"><a href="#5、libcurl安装" class="headerlink" title="5、libcurl安装"></a>5、libcurl安装</h2><pre><code>tar zxvf curl-7.30.0.tar.gz
+cd curl-7.30.0
+./configure
+make &amp;&amp; make install
+</code></pre><h2 id="6、zbar安装"><a href="#6、zbar安装" class="headerlink" title="6、zbar安装"></a>6、zbar安装</h2><pre><code>tar zxvf zbar-0.10.tar.gz
+cd zbar-0.10
+export PKG_CONFIG_LIBDIR=/usr/local/lib/pkgconfig
+./configure --without-gtk --without-qt
+make &amp;&amp; make install
+</code></pre><h2 id="7、others"><a href="#7、others" class="headerlink" title="7、others"></a>7、others</h2><pre><code>vim /etc/ld.so.conf 增加 “include /usr/local/lib”
+cp /usr/local/include/ImageMagick-6/* /usr/include/ -rf
+cp /usr/local/lib/libMagic* /usr/lib -f
+cp /usr/lib64/libjpeg* /usr/lib
+cp /usr/local/lib/libzbar* /usr/lib -f
+ldconfig
+</code></pre><h2 id="8、测试zbar"><a href="#8、测试zbar" class="headerlink" title="8、测试zbar"></a>8、测试zbar</h2><pre><code>unzip ZBar\ SDK.zip
+cd zbar-master/examples/
+编译如下:
+    g++ scan_image.cpp -lzbar -lMagick++-6.Q16 -lMagickCore-6.Q16 -lMagickWand-6.Q16 -o test
+    gcc test_scan.c -fPIC -lzbar -lavcodec -lpng15 -lMagick++-6.Q16 -lMagickCore-6.Q16 -lMagickWand-6.Q16 -o ctest
+测试如下:
+    ./test test14.jpg
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> others </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[docker mcq 部署]]></title>
+      <url>/2017/09/30/docker-mcq/</url>
+      <content type="html"><![CDATA[<h1 id="docker-mcq-安装"><a href="#docker-mcq-安装" class="headerlink" title="docker mcq 安装"></a>docker mcq 安装</h1><h2 id="1、Dockerfile"><a href="#1、Dockerfile" class="headerlink" title="1、Dockerfile"></a>1、Dockerfile</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">FROM centos</div><div class="line">MAINTAINER geekbook</div><div class="line"></div><div class="line"># mkdir in container</div><div class="line">RUN mkdir -p /data0/tools</div><div class="line">RUN mkdir -p /data0/data/mcq/log</div><div class="line"></div><div class="line"># ADD start_mcq.sh</div><div class="line">ADD start_mcq.sh /</div><div class="line"></div><div class="line"># ADD tar.gz to container</div><div class="line">COPY db-5.0.21.tar.gz /data0/tools</div><div class="line">COPY memcacheq-0.2.0.tar.gz /data0/tools</div><div class="line"></div><div class="line"># yum install libevent libevent-devel gcc make</div><div class="line">RUN yum install -y libevent libevent-devel gcc make</div><div class="line"></div><div class="line"># tar berkeleydb &amp;&amp; memcacheq</div><div class="line">WORKDIR /data0/tools</div><div class="line">RUN tar -zxvf db-5.0.21.tar.gz</div><div class="line">RUN tar -zxvf memcacheq-0.2.0.tar.gz</div><div class="line"></div><div class="line"># berkeleydb make &amp;&amp; make install</div><div class="line">WORKDIR /data0/tools/db-5.0.21/build_unix</div><div class="line">RUN ../dist/configure --prefix=/data0/tools/berkeleydb</div><div class="line">RUN make</div><div class="line">RUN make install</div><div class="line">RUN echo &quot;/data0/tools/berkeleydb/lib/&quot; &gt;&gt; /etc/ld.so.conf</div><div class="line">RUN ldconfig</div><div class="line"></div><div class="line"># memcacheq make &amp;&amp; make install</div><div class="line">WORKDIR /data0/tools/memcacheq-0.2.0</div><div class="line">RUN ./configure --with-libevent=/usr/lib64 --with-bdb=/data0/tools/berkeleydb --enable-threads</div><div class="line">RUN make</div><div class="line">RUN make install</div><div class="line"></div><div class="line">WORKDIR /</div><div class="line">CMD [&quot;/bin/bash&quot;]</div></pre></td></tr></table></figure>
+<h2 id="2、start-mcq-sh"><a href="#2、start-mcq-sh" class="headerlink" title="2、start_mcq.sh"></a>2、start_mcq.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">memcacheq -d -uroot -r -p11212 -H /data0/data/mcq -N -R -v -L 1024 -B 1024 &gt;&gt; /data0/data/mcq/error.log 2&gt;&amp;1</div><div class="line">tail -f /data0/data/mcq/error.log</div></pre></td></tr></table></figure>
+<h2 id="3、start-mcq"><a href="#3、start-mcq" class="headerlink" title="3、start mcq"></a>3、start mcq</h2><p>docker run -it –name geekbook_mcq11213 -p 11213:11212 -d geekbook_mcq0 /bin/bash</p>
+]]></content>
+      
+        <categories>
+            
+            <category> docker </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[docker mysql 部署]]></title>
+      <url>/2017/09/30/docker-mysql/</url>
+      <content type="html"><![CDATA[<h1 id="docker-mysql-安装"><a href="#docker-mysql-安装" class="headerlink" title="docker mysql 安装"></a>docker mysql 安装</h1><h2 id="1、Dockerfile"><a href="#1、Dockerfile" class="headerlink" title="1、Dockerfile"></a>1、Dockerfile</h2><pre><code>FROM mysql
+</code></pre><h2 id="2、master-db"><a href="#2、master-db" class="headerlink" title="2、master db"></a>2、master db</h2><pre><code>docker pull mysql
+docker run --name mysql-master-4307 -v /data1/data_source/mysql/4307/data:/var/lib/mysql -v /data1/confs/mysql/4307m/4307m.cnf:/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=123456 -p 4307:3306 mysql &amp;
+master4307: 
+    mysql -h 127.0.0.1 -P 4307 -uroot -p123456
+    grant replication slave on *.* to &apos;slave4307&apos;@&apos;%&apos; identified by &apos;root&apos;;
+    show master status;(获取File, Position)
+</code></pre><h2 id="3、slave-db"><a href="#3、slave-db" class="headerlink" title="3、slave db"></a>3、slave db</h2><pre><code>docker run --name mysql-slave0-4307 -v /data1/confs/mysql/4307s/4307s.cnf:/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=123456 -p 14307:3306 mysql
+slave4307:
+    change master to master_host=&apos;192.168.0.2&apos;,master_port=3306,master_user=&apos;slave4307&apos;,master_password=&apos;root&apos;,master_log_file=&apos;mysql-bin.000004&apos;, master_log_pos=434;
+    start slave;
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> docker </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[docker redis 部署]]></title>
+      <url>/2017/09/30/docker-redis/</url>
+      <content type="html"><![CDATA[<h1 id="docker-redis"><a href="#docker-redis" class="headerlink" title="docker redis"></a>docker redis</h1><h2 id="1、Dockerfile"><a href="#1、Dockerfile" class="headerlink" title="1、Dockerfile"></a>1、Dockerfile</h2><pre><code>FROM redis
+</code></pre><h2 id="2、master-amp-amp-slave"><a href="#2、master-amp-amp-slave" class="headerlink" title="2、master &amp;&amp; slave"></a>2、master &amp;&amp; slave</h2><pre><code>docker run --net=&quot;host&quot; -v /data1/confs/redis/redis-master-6381.conf:/usr/local/etc/redis.conf -v /data1/data_source/redis/6381:/data --name redis-master-6381 -d redis redis-server /usr/local/etc/redis.conf
+docker run --net=&quot;host&quot; -v /data1/confs/redis/redis-slave-6381.conf:/usr/local/etc/redis.conf -v /data1/data_source/redis/6381:/data --name redis-slave-6381 -d redis redis-server /usr/local/etc/redis.conf
+注: 需要修改redis-master-6381.conf, redis-slave-6381.conf
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> docker </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hbase]]></title>
+      <url>/2017/09/30/hbase/</url>
+      <content type="html"><![CDATA[<h1 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h1>]]></content>
+      
+        <categories>
+            
+            <category> storage </category>
+            
+            <category> hbase </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hbase </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mongodb]]></title>
+      <url>/2017/09/30/mongodb/</url>
+      <content type="html"><![CDATA[<h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1>]]></content>
+      
+        <categories>
+            
+            <category> storage </category>
+            
+            <category> mongodb </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java设计模式(二)迭代器模式]]></title>
+      <url>/2017/09/30/design-pattern-iterator/</url>
+      <content type="html"><![CDATA[<h1 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h1>]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+            <category> Design Pattern </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java设计模式(一)单例模式]]></title>
+      <url>/2017/09/30/design-pattern-singleton/</url>
+      <content type="html"><![CDATA[<h1 id="单例模式简介"><a href="#单例模式简介" class="headerlink" title="单例模式简介"></a>单例模式简介</h1>]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+            <category> Design Pattern </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mysql]]></title>
+      <url>/2017/09/30/mysql/</url>
+      <content type="html"><![CDATA[<h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1>]]></content>
+      
+        <categories>
+            
+            <category> storage </category>
+            
+            <category> mysql </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mc]]></title>
+      <url>/2017/09/30/mc/</url>
+      <content type="html"><![CDATA[<h1 id="mc"><a href="#mc" class="headerlink" title="mc"></a>mc</h1><p>日常应用中，一般会将数据存储在rdbms中，服务器从数据库中取出数据提供给业务方。但是随着服务规模的增加，qps的陡增，常用的分库分表已经很难继续提供高性能的服务，特别是出现网络抖动、数据库负载过高(如出现慢查询、主从同步慢)。memcache作为高性能的kv分布式缓存，通过对数据种缓存实现冷热数据分离，可以有效的解决服务中可能出现的性能瓶颈，提高服务的响应速度以及扩展性。</p>
+<h2 id="redis"><a href="#redis" class="headerlink" title="redis?"></a>redis?</h2><p>通常都会将redis与mc进行对比，和redis一样，mc采用内存进行存储，但是没有进行持久化操作，也就是说当mc服务器重启时，已有的缓存全部被抹掉，需要重新种一遍缓存，当然redis也有类似的操作，如删除rdb、aof一样也无法恢复数据。在速度方面，两者并无太明显的差异，但是redis支持更多的数据结构，如list、set、zset等。仅就业务层面而言，mc可以提供的功能，redis也可以实现，同时mc、redis都支持主从同步实现读写分离；但是需要注意的是mc的永久缓存只有30 day，这个在mc的源码中有所体现。值得一提的是，mc在内存存储空间不足时会采用LRU (Last Recently Used)算法删除最早未被使用的缓存，而redis则可以选择落地到磁盘，redis更像是mc的一种替代方案。</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>mc本身即为分布式缓存，也可以在前端机搭建一个mc，16g内存的前端机，业务划分内存10g，配备一个2g的本地mc作为L0可以作为一种不错的解决方案。</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>setex 如果key已经存在，则返回false，否则返回true，可以作为一种简单的lock。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> cache </category>
+            
+            <category> mc </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mc </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[pika]]></title>
+      <url>/2017/09/30/pika/</url>
+      <content type="html"><![CDATA[<h1 id="pika"><a href="#pika" class="headerlink" title="pika"></a>pika</h1><p>360基础架构组提出的大容量redis存储方案 pika, git地址: <a href="https://github.com/Qihoo360/pink" target="_blank" rel="external">https://github.com/Qihoo360/pink</a>。</p>
+<h2 id="redis"><a href="#redis" class="headerlink" title="redis?"></a>redis?</h2><p>pika完全兼容redis协议，相比于redis，在读写性能方面(不考虑redis缓冲区写满)仅为redis的1/10，但是其所提供的存储资源却是redis难以达到的。一般的存储型服务器内存达到100+g已经不错了，而在业务层面如果需要上百g的存储空间，需要多台redis服务器才能解决，而且还没有将其所需要的从库资源计算在内，pika可以解决一些redis解决不了的”大容量”场景。</p>
+<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><p>早期的pika中出现过碎片化的问题，带来的结果就是服务崩溃，新的版本中已将其修复。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> cache </category>
+            
+            <category> pika </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> pika </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[redis 简介]]></title>
+      <url>/2017/09/30/redis/</url>
+      <content type="html"><![CDATA[<h1 id="redis-简介"><a href="#redis-简介" class="headerlink" title="redis 简介"></a>redis 简介</h1><h3 id="为什么用redis？"><a href="#为什么用redis？" class="headerlink" title="为什么用redis？"></a>为什么用redis？</h3><blockquote>
+<ul>
+<li>提供的服务中, 数据有冷热之分, 将热点数据存储在缓存中, 对于服务性能的提升有着非常明显的作用. 以 mysql 为例, 单端口的 mysql 在read-only qps 达到 5000 已经难能可贵, 而对于 redis 来说只不过是刚刚开始, 更加要命的是当 mysql 进行主从同步时, 主库和从库互相牵制, 使得服务性能大打折扣. 曾经出现过一次比较严重的问题, 由于查询语句不合理, 在查询时进行了隐式转换(每一条 sql 都必须经过 explain), 导致该条 sql 指令执行时间过长, 进一步导致了主库被拖垮.</li>
+<li>相较于落地于磁盘的 mysql 而言, 使用内存的 redis 则显得昂贵的多, 一台服务器最多只能够提供 100+G 左右的 redis 资源, 而 mysql 存储空间明显大得多, 需要考虑的是如何进行分库、分表. 一般的做法是 hash, 是否采用一致性 hash 由业务决定, 但是一致性 hash 并不均匀. 360 公司在 redis 协议的基础上开发了采用 ssd 作为资源的 pika, 基本上兼容 redis 协议, pika 的优势不言而喻, 既兼容了 redis 协议, 又能提供足够的存储空间, 对于实时性要求并不高的业务而言已经可以满足需求, 业务的改动量由 redis 迁移至 pika 几乎为零. (pika 也是高速存储, 存取速度一般在 10+ms 左右, 而 redis 只有几ms)</li>
+<li>分布式服务中, redis 可以作为分布式锁, 如 setnx(key, value), 即set if not exist, 如果 key 不存在则返回 true, key 存在则返回 false. 服务获得 key 后即可认为持有锁, 执行完后需要释放锁, 如果释放失败将会导致死锁, 其他服务无法持有锁. 在获取锁后可以设置 key 的超时时间, 无论服务是否完成都将会释放锁, 这里会引入一个新的问题: task1 持有锁, 设置超时时间t1, t1结束后, 锁被释放, 此时task1仍未完成, task2 开始持有锁, 而此时 task1 完成后会再次执行释放锁的操作, 因此有必要在释放锁前将执行时间与初次设置超时时间进行对比, 从而判断是否需要释放锁.</li>
+<li>持久化存储, 相比于 memcache, 提供了更佳丰富的数据结构, 如list、set、hset、zset. redis 上有一些比较有意思的东西, 比如</li>
+<li><ul>
+<li>queue, 可用通过 list 的 rpush、lpop 实现一个消息队列, 特别的对于优先级较高的数据, 可以选择 lpush</li>
+</ul>
+</li>
+<li><ul>
+<li>priority queue, zset 即可实现, 每次取出其中最小/大的元素</li>
+</ul>
+</li>
+<li><ul>
+<li>发号器, redis + lua 可以实现一个简易的发号器, 参见<a href="https://github.com/spirit-fire/redis-lua" target="_blank" rel="external">https://github.com/spirit-fire/redis-lua</a></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> cache </category>
+            
+            <category> redis </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> redis </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[spring+jersey+tomcat 搭建基础架构]]></title>
+      <url>/2017/09/30/structure/</url>
+      <content type="html"><![CDATA[<h1 id="基础架构设计思想"><a href="#基础架构设计思想" class="headerlink" title="基础架构设计思想"></a>基础架构设计思想</h1>]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+            <category> 架构 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础架构 </tag>
+            
+            <tag> spring </tag>
+            
+            <tag> jersey </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一、threadpool 简介]]></title>
+      <url>/2017/09/30/threadpool/</url>
+      <content type="html"><![CDATA[<h1 id="threadpool-简介"><a href="#threadpool-简介" class="headerlink" title="threadpool 简介"></a>threadpool 简介</h1>]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+            <category> threadpool </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 线程池 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[gc 简介]]></title>
       <url>/2017/09/26/gc/</url>
       <content type="html"><![CDATA[<h1 id="gc"><a href="#gc" class="headerlink" title="gc"></a>gc</h1><p>Stop-the-world会在任何一种GC算法中发生。Stop-the-world意味着 JVM 因为要执行GC而停止了应用程序的执行。当Stop-the-world发生时，除了GC所需的线程以外，所有线程都处于等待状态，直到GC任务完成。GC优化很多时候就是指减少Stop-the-world发生的时间。尽量将使用完的对象设置为null，在有等待时间的条件基础之上显示的调用System.gc()，但是此时不一定会触发gc。</p>
@@ -45,14 +620,16 @@
       
         <categories>
             
-            <category> gc </category>
+            <category> Java </category>
+            
+            <category> JVM </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> -JVM </tag>
+            <tag> gc </tag>
             
         </tags>
         

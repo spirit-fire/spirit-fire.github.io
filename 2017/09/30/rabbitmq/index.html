@@ -113,17 +113,17 @@
 
 
 
-<meta name="description" content="rabbitmq">
+<meta name="description" content="1、rabbitmq 安装  brew install rabbitmq  Path: /usr/local/Cellar/rabbitmq/3.6.6  conf: /usr/local/etc/rabbitmq/rabbitmq-env.conf 2、相关操作  启动:    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmq-server  状态查询">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rabbitmq">
+<meta property="og:title" content="rabbitmq(一)安装">
 <meta property="og:url" content="http://yoursite.com/2017/09/30/rabbitmq/index.html">
 <meta property="og:site_name" content="tuntunxiong 的个人博客">
-<meta property="og:description" content="rabbitmq">
+<meta property="og:description" content="1、rabbitmq 安装  brew install rabbitmq  Path: /usr/local/Cellar/rabbitmq/3.6.6  conf: /usr/local/etc/rabbitmq/rabbitmq-env.conf 2、相关操作  启动:    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmq-server  状态查询">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T05:52:58.000Z">
+<meta property="og:updated_time" content="2017-09-30T06:32:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rabbitmq">
-<meta name="twitter:description" content="rabbitmq">
+<meta name="twitter:title" content="rabbitmq(一)安装">
+<meta name="twitter:description" content="1、rabbitmq 安装  brew install rabbitmq  Path: /usr/local/Cellar/rabbitmq/3.6.6  conf: /usr/local/etc/rabbitmq/rabbitmq-env.conf 2、相关操作  启动:    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmq-server  状态查询">
 
 
 
@@ -159,7 +159,7 @@
 
 
 
-  <title>rabbitmq | tuntunxiong 的个人博客</title>
+  <title>rabbitmq(一)安装 | tuntunxiong 的个人博客</title>
   
 
 
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">rabbitmq</h1>
+          <h1 class="post-title" itemprop="name headline">rabbitmq(一)安装</h1>
         
 
         <div class="post-meta">
@@ -434,7 +434,11 @@
       
 
       
-        <h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1>
+        <h2 id="1、rabbitmq-安装"><a href="#1、rabbitmq-安装" class="headerlink" title="1、rabbitmq 安装"></a>1、rabbitmq 安装</h2><p>  brew install rabbitmq<br>  Path: /usr/local/Cellar/rabbitmq/3.6.6<br>  conf: /usr/local/etc/rabbitmq/rabbitmq-env.conf</p>
+<h2 id="2、相关操作"><a href="#2、相关操作" class="headerlink" title="2、相关操作"></a>2、相关操作</h2><p>  启动:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmq-server<br>  状态查询:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqctl status<br>  停止:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqctl stop</p>
+<h2 id="3、可视化"><a href="#3、可视化" class="headerlink" title="3、可视化"></a>3、可视化</h2><p>  <a href="http://localhost:15672/#/" target="_blank" rel="external">http://localhost:15672/#/</a><br>  User: guest<br>  Pwd: guest<br>  详情见 /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqadmin 中的<br>  [host_normal]<br>  hostname = localhost<br>  port = 15672<br>  username = guest<br>  password = guest<br>  declare_vhost = / # Used as default for declare / delete only<br>  vhost = /         # Used as default for declare / delete / list</p>
+<p>  [host_ssl]<br>  hostname = otherhost<br>  port = 15672<br>  username = guest<br>  password = guest<br>  ssl = True<br>  ssl_key_file = /path/to/key.pem<br>  ssl_cert_file = /path/to/cert.pem</p>
+
       
     </div>
     
@@ -686,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rabbitmq"><span class="nav-number">1.</span> <span class="nav-text">rabbitmq</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、rabbitmq-安装"><span class="nav-number">1.</span> <span class="nav-text">1、rabbitmq 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、相关操作"><span class="nav-number">2.</span> <span class="nav-text">2、相关操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、可视化"><span class="nav-number">3.</span> <span class="nav-text">3、可视化</span></a></li></ol></div>
             
 
           </div>

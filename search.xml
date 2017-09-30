@@ -168,9 +168,13 @@ zoo.cfg: (如果是集群, 不能用127.0.0.1, 只能用实际的ip)
     </entry>
     
     <entry>
-      <title><![CDATA[rabbitmq]]></title>
+      <title><![CDATA[rabbitmq(一)安装]]></title>
       <url>/2017/09/30/rabbitmq/</url>
-      <content type="html"><![CDATA[<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1>]]></content>
+      <content type="html"><![CDATA[<h2 id="1、rabbitmq-安装"><a href="#1、rabbitmq-安装" class="headerlink" title="1、rabbitmq 安装"></a>1、rabbitmq 安装</h2><p>  brew install rabbitmq<br>  Path: /usr/local/Cellar/rabbitmq/3.6.6<br>  conf: /usr/local/etc/rabbitmq/rabbitmq-env.conf</p>
+<h2 id="2、相关操作"><a href="#2、相关操作" class="headerlink" title="2、相关操作"></a>2、相关操作</h2><p>  启动:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmq-server<br>  状态查询:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqctl status<br>  停止:<br>    /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqctl stop</p>
+<h2 id="3、可视化"><a href="#3、可视化" class="headerlink" title="3、可视化"></a>3、可视化</h2><p>  <a href="http://localhost:15672/#/" target="_blank" rel="external">http://localhost:15672/#/</a><br>  User: guest<br>  Pwd: guest<br>  详情见 /usr/local/Cellar/rabbitmq/3.6.6/sbin/rabbitmqadmin 中的<br>  [host_normal]<br>  hostname = localhost<br>  port = 15672<br>  username = guest<br>  password = guest<br>  declare_vhost = / # Used as default for declare / delete only<br>  vhost = /         # Used as default for declare / delete / list</p>
+<p>  [host_ssl]<br>  hostname = otherhost<br>  port = 15672<br>  username = guest<br>  password = guest<br>  ssl = True<br>  ssl_key_file = /path/to/key.pem<br>  ssl_cert_file = /path/to/cert.pem</p>
+]]></content>
       
         <categories>
             
